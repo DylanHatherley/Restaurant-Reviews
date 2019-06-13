@@ -146,9 +146,15 @@ resetRestaurants = (restaurants) => {
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
   const ul = document.getElementById('restaurants-list');
+  const noResults = document.createElement('h1');
+  noResults.innerHTML = "No Results Meet Current Filter";
   restaurants.forEach(restaurant => {
     ul.append(createRestaurantHTML(restaurant));
   });
+  // No results message if no restaurants meet the current filter options
+  if (restaurants == 0) {
+    ul.append(noResults)
+  }
   addMarkersToMap();
 }
 

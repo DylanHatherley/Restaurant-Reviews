@@ -9,7 +9,7 @@ class DBHelper {
    */
   static get DATABASE_URL() {
     const port = 5500 // Change this to your server port
-    const ip = '' // Added this to be able to view and test on other physical devices
+    const ip = '192.168.1.194' // Added this to be able to view and test on other physical devices
     return `http://${ip}:${port}/data/restaurants.json`;
   }
 
@@ -159,10 +159,19 @@ class DBHelper {
    */
   static mapMarkerForRestaurant(restaurant, map) {
     // https://leafletjs.com/reference-1.3.0.html#marker  
+    
+    // Custom Marker Icon
+    const forkIcon = L.icon({
+      iconUrl: 'img/fork-marker.svg',
+      iconSize: [30, 65],
+      iconAnchor: [15, 55],
+    });
+
     const marker = new L.marker([restaurant.latlng.lat, restaurant.latlng.lng], {
       title: restaurant.name,
       alt: restaurant.name,
       url: DBHelper.urlForRestaurant(restaurant),
+      icon: forkIcon
     })
     marker.addTo(newMap);
     return marker;
