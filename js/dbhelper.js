@@ -9,7 +9,7 @@ class DBHelper {
    */
   static get DATABASE_URL() {
     const port = 5500 // Change this to your server port
-    const ip = '192.168.1.194' // Added this to be able to view and test on other physical devices
+    const ip = '' // Added this to be able to view and test on other physical devices
     return `http://${ip}:${port}/data/restaurants.json`;
   }
 
