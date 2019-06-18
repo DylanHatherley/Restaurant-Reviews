@@ -9,8 +9,7 @@ class DBHelper {
    */
   static get DATABASE_URL() {
     const port = 5500 // Change this to your server port
-    const ip = '' // Added this to be able to view and test on other physical devices
-    return `http://${ip}:${port}/data/restaurants.json`;
+    return `http://localhost:${port}/data/restaurants.json`;
   }
 
   /**
@@ -164,14 +163,15 @@ class DBHelper {
     const forkIcon = L.icon({
       iconUrl: 'img/fork-marker.svg',
       iconSize: [30, 65],
-      iconAnchor: [15, 55],
+      iconAnchor: [15, 40],
     });
 
     const marker = new L.marker([restaurant.latlng.lat, restaurant.latlng.lng], {
       title: restaurant.name,
       alt: restaurant.name,
       url: DBHelper.urlForRestaurant(restaurant),
-      icon: forkIcon
+      icon: forkIcon,
+      keyboard: false
     })
     marker.addTo(newMap);
     return marker;

@@ -32,6 +32,8 @@ fetchNeighborhoods = () => {
  */
 fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
   const select = document.getElementById('neighborhoods-select');
+  select.setAttribute('aria-label', "Select Neighborhood");
+
   neighborhoods.forEach(neighborhood => {
     const option = document.createElement('option');
     option.innerHTML = neighborhood;
@@ -59,6 +61,7 @@ fetchCuisines = () => {
  */
 fillCuisinesHTML = (cuisines = self.cuisines) => {
   const select = document.getElementById('cuisines-select');
+  select.setAttribute('aria-label', "Select Cuisine");
 
   cuisines.forEach(cuisine => {
     const option = document.createElement('option');
@@ -146,7 +149,7 @@ resetRestaurants = (restaurants) => {
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
   const ul = document.getElementById('restaurants-list');
-  const noResults = document.createElement('h1');
+  const noResults = document.createElement('h2');
   noResults.innerHTML = "No Results Meet Current Filter";
   restaurants.forEach(restaurant => {
     ul.append(createRestaurantHTML(restaurant));
@@ -185,7 +188,8 @@ createRestaurantHTML = (restaurant) => {
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
-  li.append(more)
+  more.setAttribute('aria-label', 'Details for' + restaurant.name);
+  li.append(more);
 
   return li
 }

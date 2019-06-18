@@ -82,16 +82,19 @@ fetchRestaurantFromURL = (callback) => {
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
+  name.setAttribute('aria-label', "Restaurant Name");
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
+  address.setAttribute('aria-label', "Restaurant Address");
 
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.className = 'restaurant-img';
   image.alt = "Image of " + restaurant.name;  
+  image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
   const cuisine = document.getElementById('restaurant-cuisine');
+  cuisine.setAttribute('aria-label', "Cuisine Type");
   cuisine.innerHTML = restaurant.cuisine_type;
 
   // fill operating hours
@@ -152,11 +155,13 @@ createReviewHTML = (review) => {
   const div = document.createElement('div');
   const name = document.createElement('p');
   name.innerHTML = review.name;
+  name.setAttribute('aria-label', "User Name");
   name.classList.add("name");
   div.appendChild(name);
 
   const date = document.createElement('p');
   date.innerHTML = review.date;
+  date.setAttribute('aria-label', "Date Added");
   date.classList.add("date");
   div.appendChild(date);
 
@@ -166,10 +171,12 @@ createReviewHTML = (review) => {
   const rating = document.createElement('p');
   rating.innerHTML = `Rating: ${review.rating}`;
   rating.classList.add("rating");
+  rating.setAttribute('aria-label', "Restaurant Rating");
   li.appendChild(rating);
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
+  comments.setAttribute('aria-label', "User Comment");
   comments.classList.add("comments");
   li.appendChild(comments);
 
@@ -181,6 +188,7 @@ createReviewHTML = (review) => {
  */
 fillBreadcrumb = (restaurant=self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
+  //breadcrumb.setAttribute('aria-label', "breadcrumb menu");
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
   breadcrumb.appendChild(li);

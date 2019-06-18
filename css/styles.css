@@ -16,9 +16,14 @@ body {
   margin: 0;
   position: relative;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* creates rows out of the elements main and footer */
+  height: 100vh;
+  margin: 0;
 }
 
-ul h1{
+ul h2 {
   margin-top: 1rem;
 }
 
@@ -71,16 +76,19 @@ section {
 #maincontent {
   background-color: #f3f3f3;
   min-height: 90vh;
+  flex: 1 0 auto;
 }
 
 #footer {
   background-color: #444;
   color: #aaa;
-  font-size: 0.5rem;
+  font-size: 0.7rem;
   letter-spacing: 1px;
   padding: 25px 0 25px 0;
   text-align: center;
   text-transform: uppercase;
+  bottom: 0px;
+  margin-bottom: 0;
 }
 
 /* ====================== Navigation ====================== */
@@ -201,7 +209,6 @@ nav h1 a {
   border: 2px solid #ccc;
   font-family: Arial, sans-serif;
   margin: 15px;
-  min-height: 380px;
   padding: 0 30px 25px;
   text-align: left;
   width: 270px;
