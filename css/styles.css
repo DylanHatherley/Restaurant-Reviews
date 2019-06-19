@@ -259,7 +259,6 @@ nav h1 a {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
 }
 
 .inside #map-container {
@@ -310,7 +309,7 @@ nav h1 a {
 
 .rating {
   text-align: left;
-  position: absolute;
+  width: max-content;
   background: #ffa500;
   color: #fff;
   margin-bottom: 1rem;
@@ -324,7 +323,6 @@ nav h1 a {
 .comments {
   display: inline-block;
   margin-top: 1rem;
-  padding-top: 1.3rem;
   padding-right: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -390,7 +388,6 @@ nav h1 a {
   list-style-type: none;
   margin: 0 0 30px;
   overflow: hidden;
-  position: relative;
   width: 85%;
 }
 
